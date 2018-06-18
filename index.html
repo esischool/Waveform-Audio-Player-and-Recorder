@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Online Info</title>
+<script type="text/javascript" src="scripts/js/jquery.min.js"></script>
+<script type="text/javascript" src="scripts/js/scrolltopcontrol.js"></script>
+<link rel="stylesheet" href="scripts/css/stylesheet.css" type="text/css" media="Screen" />
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="scripts/css/bootstrap.css">
+<link rel="stylesheet" href="scripts/css/bootstrap.min.css">
+<!-- Optional: Include the jQuery library -->
+<script src="scripts/js/jquery.min.js"></script>
+<!-- Optional: Incorporate the Bootstrap JavaScript plugins -->
+<script src="scripts/js/bootstrap.min.js"></script>
+
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Audio Waveform Player with Playlist</title>
+
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"><!-- icons -->
+		<link rel="stylesheet" type="text/css" href="css/awp_default.css" />
+        <link rel="stylesheet" type="text/css" href="css/jquery.mCustomScrollbar.css" media="all" /><!-- playlist scroll -->
+        
+        <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+        <script type="text/javascript" src="js/wavesurfer.js"></script>
+        <script type="text/javascript" src="js/jsmediatags.min.js"></script><!-- id3 tags -->
+        <script type="text/javascript" src="js/jquery.mCustomScrollbar.concat.min.js"></script><!-- playlist scroll -->
+        <script type="text/javascript" src="js/new_cb.js"></script>
+        <script type="text/javascript" src="js/new.js?54"></script>			
+        <script type="text/javascript">
+
+            var awp_player;  
+            jQuery(document).ready(function($){
+
+                var settings = {
+                    instanceName:"default",
+                    sourcePath:"",
+                    playlistList:"#awp-playlist-list",
+                    activePlaylist:"playlist-audio1",
+                    activeItem:0,
+                    volume:0.5,
+                    autoPlay:true,
+                    drawWaveWithoutLoad:false,
+                    randomPlay:false,
+                    loopingOn:false,
+                    autoAdvanceToNextMedia:true,
+                    soundCloudAppId:"",
+                    gDriveAppId:"",
+                    useKeyboardNavigationForPlayback:true,
+                    usePlaylistScroll:true,
+                    playlistScrollOrientation:"vertical",
+                    playlistScrollTheme:"light",
+                    facebookAppId:"",
+                    useNumbersInPlaylist: false,
+                    numberTitleSeparator: ".  ",
+                    artistTitleSeparator: " - ",
+                    playlistItemContent:"title",
+                    wavesurfer:{
+                        waveColor: '#A8DBA8',
+                        progressColor: '#ff33ff',   
+                        barWidth: 0,
+                        cursorColor: '#0000ff',
+                        cursorWidth: 3,
+                        height: 100,
+                    }
+                };
+
+                awp_player = $("#awp-wrapper").awp(settings);
+
+            }); 
+
+        </script>
+        
+	</head>
+	<body>
+
+        <!-- player code -->   
+        <div id="awp-wrapper">
+
+            <div class="awp-player-thumb-wrapper">
+			
+			<div class="awp-player-thumb"></div>
+			
+			<div class="awp-playback-toggle"><i class="fa fa-play"></i></div>
+
+                <div class="awp-volume-wrapper">
+                    <div class="awp-player-volume"><i class="fa fa-volume-up"></i></div>
+                    <div class="awp-volume-seekbar awp-tooltip-top">
+                         <div class="awp-volume-bg"></div>
+                         <div class="awp-volume-level"></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="awp-player-holder">
+
+                <div class="awp-waveform-wrap">
+                    <div class="awp-waveform awp-hidden"></div>  
+                    <div class="awp-waveform-img awp-hidden"><!-- image waveform backup -->
+                        <div class="awp-waveform-img-load"></div>
+                        <div class="awp-waveform-img-progress-wrap"><div class="awp-waveform-img-progress"></div></div>
+                    </div>
+                    <span class="awp-waveform-preloader"></span>
+                </div>  
+
+                <p class="awp-media-time-total awp-hidden">0:00</p>
+                <p class="awp-media-time-current awp-hidden">0:00</p>
+
+            </div>
+              
+            <div class="awp-playlist-holder">
+                <div class="awp-playlist-filter-msg"><p>NOTHING FOUND!</p></div>
+                <div class="awp-playlist-inner">
+                    <div class="awp-playlist-content">
+                        <!-- playlist items are appended here! --> 
+                    </div>
+                </div>
+                
+                <div class="awp-preloader"></div>
+
+                <div class="awp-bottom-bar">
+                    <div class="awp-share-item awp-tooltip-top" data-type="googleplus" data-awptooltip="Share on Google+"><i class="fa fa-google-plus awp-sr-bar-i awp-icon-color"></i></div>
+                    <div class="awp-share-item awp-tooltip-top" data-type="tumblr" data-awptooltip="Share on Tumblr"><i class="fa fa-tumblr awp-sr-bar-i awp-icon-color"></i></div>
+                    <div class="awp-share-item awp-tooltip-top" data-type="twitter" data-awptooltip="Share on Twitter"><i class="fa fa-twitter awp-sr-bar-i awp-icon-color"></i></div>
+                    <div class="awp-share-item awp-tooltip-top" data-type="facebook" data-awptooltip="Share on Facebook"><i class="fa fa-facebook awp-sr-bar-i awp-icon-color"></i></div> 
+
+                </div>
+
+            </div>
+        
+        </div>  
+
+        <!-- PLAYLIST LIST -->
+        <div id="awp-playlist-list">
+
+             <!-- audio playlist -->
+             <ul id="playlist-audio1">
+
+                <li class="awp-playlist-item" 
+				data-type="audio" 
+				data-mp3="media/audio/1/Me puede dar su numero de telefono.mp3" 
+				data-title="Me puede dar su número de teléfono"
+				data-thumb="media/audio/1/003n.jpg"></li>
+
+             </ul>
+        </div>     
+      <div class="caption">
+			<p style="line-height: 150%; margin-top: 0; margin-bottom: 0">fgfgfd<br>
+			</p>
+</div>		
+	</body>
