@@ -32,7 +32,7 @@ canvas{
 
 .awp-player-thumb-wrapper{
 	position:relative;
-	width:100px;
+	width:200px;
 	height:120px;
 	float:left;
 	background-color: #222;
@@ -48,7 +48,7 @@ canvas{
 	max-width: none;
     height: 100%;
     width: auto!important;
-	min-width: 100px;
+	min-width: 200px;
 }
 
 .awp-player-holder{
@@ -106,7 +106,7 @@ canvas{
     width:0;
     height: 100%;
     overflow: hidden;
-    /*border-right: 3px solid #0000ff;*/
+    border-right: 3px solid #0000ff;
 }
 .awp-waveform-img-progress {
     position: absolute;
@@ -214,7 +214,7 @@ canvas{
 	height:30px;
 	cursor: pointer;
 	touch-action: none;
-	background: rgba(100, 54, 54, 0.01); 
+	background: rgba(200, 54, 54, 0.01); 
 }
 .awp-player-volume{
 	position:absolute;
@@ -467,56 +467,4 @@ canvas{
 /* scroll */
 .awp-playlist-inner .mCSB_inside > .mCSB_container {
     margin-right: 30px;
-}
-
-
-
-
-
-
-
-
-/* api */
-#api-panel {
-	position:fixed;
-	top:0px;
-	right:0px;
-	height:100%;
-	overflow-y:auto;
-	z-index: 999999;
-	display:none;
-}
-#api-panel li a{
-	color:#fff;
-}
-#api-panel li a:hover, #api-panel li .current{
-	text-decoration: underline;
-}
-#api-panel li.space {
-   margin-bottom: 20px;
-}
-.api-panel-inner {
-	padding: 30px;
-	background:#444;
-	font-size: 16px;
-	color:#eee;
-}
-.toggle-panel {
-	position:fixed;
-	top:0px;
-	right:0px;
-	width:40px;
-	height:40px;
-	background: #444 url('../data/api_open.png') no-repeat center center;
-	z-index: 999999;
-	display: none;
-}
-.toggle-panel-close {
-	position:fixed;
-	top:0px;
-	right:0px;
-	width:40px;
-	height:40px;
-	background: #444 url('../data/api_close.png') no-repeat center center;
-	z-index: 999999;
 }

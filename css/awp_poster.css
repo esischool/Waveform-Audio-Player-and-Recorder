@@ -1,0 +1,335 @@
+*{
+	margin:0;
+	padding:0;
+	border:0;
+	outline:none;
+}
+a{ 
+	text-decoration: none; 
+}
+body {
+	-webkit-font-smoothing: subpixel-antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	overflow: hidden;
+	background: url("../data/pattern/dark/4.png") repeat;                 
+}
+html, body { height: 100%; }
+
+
+canvas{
+    max-width: none!important; 
+}
+
+
+#awp-wrapper{
+	position:relative;
+	min-width:400px;
+	max-width:800px;
+	max-height: 400px;
+	margin:0 auto;
+	top:50%;
+	-webkit-transform: translateY(-50%);
+  	-ms-transform: translateY(-50%);
+  	transform: translateY(-50%);
+	font-family: Arial, Helvetica, sans-serif;
+	-moz-box-shadow: 1px 1px 75px #111;
+	-webkit-box-shadow: 1px 1px 75px #111;
+    box-shadow: 1px 1px 75px #111;
+}
+.awp-player-thumb{
+    overflow: hidden;
+}
+.awp-player-thumb img{
+	display: block;
+    width: 100%;
+    height: auto;
+}
+.awp-player-holder{
+	position: absolute;
+	top:0;
+	left:0;
+	width: 100%;
+	height: 100%;
+	touch-action: none;
+	overflow: hidden;
+}
+.awp-icon-color{
+	color:#eee !important;
+	-webkit-transition: color 0.3s ease-in-out;
+    transition: color 0.3s ease-in-out; 
+}
+.awp-icon-rollover-color{
+	color:#fff !important;
+	-webkit-transition: color 0.3s ease-in-out;
+    transition: color 0.3s ease-in-out; 
+}
+.awp-contr-btn-i{
+	position: absolute;
+    top: 0;
+    left: 0;
+	width:25px;
+	height:25px;
+	text-align: center;
+	display: inline-block;
+	font-size: 16px!important;
+	line-height: 25px!important;
+}
+
+.awp-info{
+	margin-top:20px;
+	margin-left:30px;
+	margin-right:200px;
+}
+.awp-player-title{
+	font-size:22px;
+	color:#fff;
+	margin:0!important;
+}
+.awp-player-artist{
+	font-size:18px;
+	color:#ccc;
+	margin:0!important;
+}
+
+
+
+.awp-share-toggle{
+	position:absolute;
+	bottom:20px;
+	width:25px;
+	height:25px;
+	right:27px;
+}
+.awp-share-toggle-btn{
+	position:absolute;
+}
+.awp-share-holder{
+	position:absolute;
+	top:0px;
+	right:25px;
+	width:165px;
+	height:25px;
+	display: none;
+	background: rgba(0,0,0,0.01);
+}
+.awp-share-item{
+	position: relative;
+	width:25px;
+	height:25px;
+	top:0;
+	float: right;
+	margin-right:10px;
+}
+
+
+.awp-player-controls{
+	position: absolute;
+	height: 30px;
+	bottom: 20px;
+	left:30px;
+}
+.awp-prev-toggle{
+	position:relative;
+	left:0px;
+	top:2px;
+	width:25px;
+	height:25px;
+	float:left;
+	margin-right:20px;
+}
+.awp-playback-toggle{
+	position:relative;
+	top:0px;
+	width:30px;
+	height:30px;
+	float:left;
+	margin-right:20px;
+}
+.awp-playback-toggle i{
+	width:30px;
+	height:30px;
+	line-height:30px!important;
+	font-size: 30px!important;
+}
+.awp-next-toggle{
+	position:relative;
+	top:2px;
+	width:25px;
+	height:25px;
+	float:left;
+	margin-right:20px;
+}
+.awp-prev-toggle i,
+.awp-next-toggle i{
+	font-size:18px!important;
+}
+
+
+.awp-player-volume{
+	position:relative;
+	top:2px;
+	width:25px;
+	height:25px;
+	float:left;
+}
+.awp-volume-seekbar{
+	position:relative;
+	left:0px;
+	top:5px;
+	width:70px;
+	height:18px;
+	float:right;
+	cursor: pointer;
+	touch-action: none;
+}
+.awp-volume-bg{
+	position:absolute;
+	top:8px;
+	left:10px;
+	width:50px;
+	height:3px;
+	background:#ccc;
+}
+.awp-volume-level{
+	position:absolute;
+	top:8px;
+	left:10px;
+	width:0px;
+	height:3px;
+	background:#D1C1FA;
+	-webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out; 
+}
+
+
+.awp-waveform-wrap {
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    left:50%;
+	top:50%;
+	-webkit-transform: translate(-50%, -50%);
+  	-ms-transform: translate(-50%, -50%);
+  	transform: translate(-50%, -50%);
+}
+.awp-waveform-preloader{
+	position:absolute;
+	left:50%;
+	top:50%;
+	-webkit-transform: translate(-50%, -50%);
+  	-ms-transform: translate(-50%, -50%);
+  	transform: translate(-50%, -50%);
+  	color:#fff;
+	font-size: 18px;
+	pointer-events:none;
+	opacity: 0;
+}
+
+.awp-waveform-img {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events:none;
+}
+.awp-waveform-img-load {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.awp-waveform-img-progress-wrap{
+	position: absolute;
+    top: 0;
+    left: 0;
+    width:0;
+    height: 100%;
+    overflow: hidden;
+    border-right: 3px solid #0000ff;
+}
+.awp-waveform-img-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.awp-waveform-img-load img,
+.awp-waveform-img-progress img{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+
+
+
+#awp-playlist-list{
+	display:none;
+}
+
+
+
+.awp-tooltip{
+	position:absolute;
+	background:#D1C1FA;
+	text-align:center;
+	z-index:10000;
+	pointer-events:none;
+	color:#fff!important;
+	-moz-box-shadow: 1px 1px 8px #111;
+	-webkit-box-shadow: 1px 1px 8px #111;
+	box-shadow: 1px 1px 8px #111;
+	border-radius: 1px;
+}
+.awp-tooltip p {
+	width:inherit;
+	font-size:13px!important;
+	margin:0 5px !important;
+	padding:0 !important;
+	line-height:20px !important;
+	white-space:nowrap;
+	color:inherit;
+}
+.awp-tooltip-num{
+	direction: ltr !important;
+}
+.awp-download-confirm{
+	position:absolute;
+	left: 50%;
+	top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+	opacity:0;
+	z-index:1000;
+	display:none;
+}
+.awp-download-confirm p{
+	padding:10px!important;
+	font-size:18px;
+	color:#fff;
+	background:#6DC7FB;
+	text-align: center;
+}
+
+
+
+
+.awp-hidden {
+	opacity: 0; 
+	filter: alpha(opacity=0); 
+}
+.awp-visible {
+	opacity: 1;
+	-webkit-transition: opacity 500ms ease-out;
+	-moz-transition: opacity 500ms ease-out;
+	transition: opacity 500ms ease-out;
+}
+
